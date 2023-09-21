@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 driver = webdriver.Chrome()
 driver.get('https://www.google.com/recaptcha/api2/demo')
 
-for x in range(1, 11):
+for x in range(21, 26):
     try:
         button = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.CLASS_NAME, 'g-recaptcha'))).click()
     except TimeoutException:
@@ -26,3 +26,5 @@ for x in range(1, 11):
         break
 
     driver.refresh()
+
+driver.quit()
