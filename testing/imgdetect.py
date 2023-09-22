@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2, os
 
 model = YOLO('yolov8m.pt')
-imgpath = "images/orig/"
+imgpath = "images/attack/random/"
 
 for imgname in os.listdir(imgpath):
     img = cv2.imread(imgpath + imgname)
