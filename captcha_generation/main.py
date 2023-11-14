@@ -85,18 +85,18 @@ def run_inference(control_image_path, prompt, negative_prompt, guidance_scale=8.
 
     output_image = output_image.resize((output_image.width * 2, output_image.height * 2), Image.NEAREST)
 
-    output_image_path = os.path.join(OUTPUT_DIR, 'output_image.png')
-    output_image.save(output_image_path)
+    output_image_path = os.path.join(OUTPUT_DIR, 'output_image')
+    output_image.save(output_image_path + random.randint(0, 1000).__str__() + ".png")
     print(f"Inference complete. Image saved to: {output_image_path}")
 
 if __name__ == "__main__":
-    for x in range(10):
-        control_image_path = os.path.join(IMAGE_DIR, 'ill.jpg')
-        prompt = "students in a classroom"
-        negative_prompt = "low quality, blurry"
-        guidance_scale = 7.5  
-        controlnet_conditioning_scale = 3  
+    control_image_path = os.path.join(IMAGE_DIR, 'ill.jpg')
+    prompt = "Medieval village scene with busy streets and a castle in the distance"
+    negative_prompt = "low quality, blurry"
+    guidance_scale = 7.5  
+    controlnet_conditioning_scale = 3
 
+    for x in range(10):
         run_inference(
             control_image_path=control_image_path,
             prompt=prompt,

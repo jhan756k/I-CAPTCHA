@@ -2,9 +2,11 @@ from ultralytics import YOLO
 import cv2, os
 
 model = YOLO('yolov8m.pt')
-imgpath = "images/orig/"
+imgpath = r"C:\Users\Jooney Han\Desktop\KSEF2023/"
 
 for imgname in os.listdir(imgpath):
+    if not imgname.endswith(".png" or ".jpg"):
+        continue
     img = cv2.imread(imgpath + imgname)
     results = model.predict(imgpath + imgname)
     result = results[0]
