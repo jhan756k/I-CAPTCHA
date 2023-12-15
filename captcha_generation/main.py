@@ -10,7 +10,7 @@ from diffusers import (
     StableDiffusionControlNetImg2ImgPipeline,
     DPMSolverMultistepScheduler,
     EulerDiscreteScheduler
-)
+) 
 
 BASE_MODEL = "SG161222/Realistic_Vision_V5.1_noVAE"
 CONTROLNET_MODEL = "monster-labs/control_v1p_sd15_qrcode_monster"
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     control_image_path = os.path.join(IMAGE_DIR, 'ill.jpg')
     prompt = "Medieval village scene with busy streets and a castle in the distance"
     negative_prompt = "low quality, blurry"
-    guidance_scale = 7.5  
+    guidance_scale = 9
     controlnet_conditioning_scale = 3
 
     for x in range(10):
