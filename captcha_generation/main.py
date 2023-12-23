@@ -84,13 +84,12 @@ if __name__ == "__main__":
     prompt = "Medieval village scene with busy streets and a castle in the distance"
     negative_prompt = "low quality, blurry"
     guidance_scale = 9
-    controlnet_conditioning_scale = 3
+    controlnet_conditioning_scale = 1
 
-    for x in range(10):
-        run_inference(
-            control_image_path=control_image_path,
-            prompt=prompt,
-            negative_prompt=negative_prompt,
-            guidance_scale=guidance_scale,
-            controlnet_conditioning_scale=controlnet_conditioning_scale
-        )
+    run_inference(
+        control_image_path=control_image_path,
+        prompt=prompt,
+        negative_prompt=negative_prompt,
+        guidance_scale=guidance_scale,
+        controlnet_conditioning_scale=controlnet_conditioning_scale
+    )
