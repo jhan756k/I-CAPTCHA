@@ -3,11 +3,9 @@ import random
 import os
 from PIL import Image
 from diffusers import (
-    DiffusionPipeline,
     AutoencoderKL,
     ControlNetModel,
     StableDiffusionControlNetPipeline,
-    StableDiffusionControlNetImg2ImgPipeline,
     DPMSolverMultistepScheduler,
     EulerDiscreteScheduler
 ) 
@@ -27,8 +25,6 @@ main_pipe = StableDiffusionControlNetPipeline.from_pretrained(
     torch_dtype=torch.float16,
 ).to("cuda")
 
-image_pipe = StableDiffusionControlNetImg2ImgPipeline(**main_pipe.components)
-
 SAMPLER_MAP = {
     "DPM++ Karras SDE": lambda config: DPMSolverMultistepScheduler.from_config(config, use_karras=True, algorithm_type="sde-dpmsolver++"),
     "Euler": lambda config: EulerDiscreteScheduler.from_config(config),
@@ -45,11 +41,6 @@ def center_crop_resize(img, output_size=(512, 512)):
     img = img.resize(output_size)
     return img
 
-def upscale(samples, upscale_method, scale_by):
-    width = round(samples.shape[3] * scale_by)
-    height = round(samples.shape[2] * scale_by)
-    return torch.nn.functional.interpolate(samples, size=(height, width), mode=upscale_method)
-
 def convert_image_to_pil(image_path):
     with open(image_path, 'rb') as f:
         image = Image.open(f)
@@ -61,7 +52,6 @@ def run_inference(control_image_path, prompt, negative_prompt, guidance_scale=8.
     
     control_image = convert_image_to_pil(control_image_path)
     control_image_small = center_crop_resize(control_image)
-    control_image_large = center_crop_resize(control_image, (1024, 1024))
     
     my_seed = random.randint(0, 2**32 - 1) if seed == -1 else seed
     generator = torch.Generator(device="cuda").manual_seed(my_seed)
