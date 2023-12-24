@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2, os
 
 model = YOLO('yolov8m.pt')
-imgpath = r"C:\Users\Jooney Han\Desktop\KSEF2023\images\orig/"
+imgpath = r"C:\Users\Jooney Han\Desktop\KSEF2023\서류\final/"
 
 for imgname in os.listdir(imgpath):
     if not imgname.endswith(".png" or ".jpg"):

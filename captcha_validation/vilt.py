@@ -2,9 +2,9 @@ from transformers import ViltProcessor, ViltForQuestionAnswering
 from PIL import Image
 import torch
 
-image_path = r"C:\Users\Jooney Han\Desktop\KSEF2023\images\illpand.jpg"  
+image_path = r"C:\Users\Jooney Han\Desktop\KSEF2023\서류\final\heart638.png"  
 image = Image.open(image_path)
-text = "Is this a panda?"
+text = "is there a heart?"
 
 processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
