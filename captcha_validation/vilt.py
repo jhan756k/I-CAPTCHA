@@ -2,7 +2,7 @@ from transformers import ViltProcessor, ViltForQuestionAnswering
 from PIL import Image
 import torch
 
-image_path = r"C:\Users\Jooney Han\Desktop\KSEF2023\서류\final\heart638.png"  
+image_path = r"C:\Users\Jooney Han\Desktop\KSEF2023\서류\dataset\heart638.png"  
 image = Image.open(image_path)
 text = "is there a heart?"
 
