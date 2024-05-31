@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="CAPTCHA framework using illusions to prevent AI bypass methods"
+    />
+    <meta name="keywords" content="CAPTCHA, ICAPTCHA" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ICAPTCHA</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+          <a class="navbar-item" href="https://github.com/jhan756k">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More Research </a>
+            <div class="navbar-dropdown">
+              <a
+                class="navbar-item"
+                href="https://github.com/jhan756k/Anti-Stable-Diffusion"
+              >
+                Anti-Stable Diffusion
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                I-CAPTCHA: Illusion-based CAPTCHA Framework
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="mailto:jhan756k@gmail.com">Jooney Han</a><sup>1</sup>
+                </span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"
+                  ><sup>1</sup>Korean Minjok Leadership Academy</span
+                >
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://drive.google.com/file/d/1uP8hVKX861K9c8IzN_ZUCyVEqkzVjSPf/view?usp=sharing"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/jhan756k/I-CAPTCHA"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img
+            src="./static/images/dataset.png"
+            alt="ICAPTCHA Dataset"
+            class="teaser-image"
+          />
+          <h2 class="subtitle has-text-centered">
+            <span class="dnerf">I-CAPTCHA</span> Prevents bypass methods via AI
+            while ensuring user accessibility.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <video
+                poster=""
+                id="steve"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/steve.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video
+                poster=""
+                id="chair-tp"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/chair-tp.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video
+                poster=""
+                id="shiba"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/shiba.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-fullbody">
+              <video
+                poster=""
+                id="fullbody"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/fullbody.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-blueshirt">
+              <video
+                poster=""
+                id="blueshirt"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/blueshirt.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-mask">
+              <video
+                poster=""
+                id="mask"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/mask.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-coffee">
+              <video
+                poster=""
+                id="coffee"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/coffee.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="item item-toby">
+              <video
+                poster=""
+                id="toby"
+                autoplay
+                controls
+                muted
+                loop
+                playsinline
+                height="100%"
+              >
+                <source src="./static/videos/toby2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Recently, serious security issues have risen due to the
+                development of methods to bypass CAPTCHA by exploiting AIs.
+                CAPTCHA, a test developed to prevent automated programs from
+                accessing websites, is used to protect functions that should
+                only be accessible to humans, such as online voting or
+                registration. However, malicious use of advanced AI technologies
+                to automatically bypass these CAPTCHAs are leading to
+                unauthorized data collection through data crawlers, large-scale
+                injection of malicious data, and etc. Therefore, this study
+                presents a new CAPTCHA framework that uses optical illusions in
+                images, which AI cannot decipher but humans can solve without
+                any issues. AIs have been developed to the extent that they can
+                understand and analyze not only the objects within an image but
+                also the overall atmosphere and structure. To solve this issue,
+                I have developed a CAPTCHA framework using optical illusions,
+                different from conventional methods, and compared how both AI
+                and humans solve it. As a result, it was confirmed that AI could
+                not bypass the test, whereas humans passed it without
+                significant difficulty. Thus, this study confirms that the novel
+                CAPTCHA framework proposed effectively prevents unauthorized web
+                access by AI and automated programs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="Method">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">Method</h2>
+        <!-- d -->
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-3">Generation Process</h2>
+              <img src="./static/images/method.png" style="width: 100%" />
+              <p>
+                <i>I-CAPTCHA</i> utilizes gpt-4 to generate text prompts and Stable Diffusion (with ControlNet) to generate images. The generated CAPTCHA images are then validated by a VQA model to ensure it is resilient to AI detection.
+              </p>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+
+          <!-- Matting. -->
+          <div class="column">
+            <h2 class="title is-3">Testing</h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <p>
+                  To test the effectiveness of <i>I-CAPTCHA</i>, AI models including 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- d -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <!-- Concurrent Work. -->
+          <div class="container is-max-desktop content">
+            <h2 class="title">Related Links</h2>
+
+            <ul>
+              <li>
+                <a href="https://github.com/imssm99/illusion-captcha">
+                  Illusion CAPTCHA using Traditional Optical Illusions</a
+                >
+              </li>
+              <li>
+                <a href="https://www.hcaptcha.com/">hCaptcha Service</a>
+              </li>
+              <li>
+                <a href="https://www.arkoselabs.com/arkose-matchkey/"
+                  >Arkose Matchkey CAPTCHA Service</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!--/ Concurrent Work. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+      </div>
+    </section> -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a
+            class="icon-link"
+            href="https://drive.google.com/file/d/1uP8hVKX861K9c8IzN_ZUCyVEqkzVjSPf/view?usp=sharing"
+          >
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a
+            class="icon-link"
+            href="https://github.com/jhan756k"
+            class="external-link"
+            disabled
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Website adapted from
+                <a href="https://github.com/nerfies/nerfies.github.io"
+                  >Nerfies</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
